@@ -1,0 +1,19 @@
+{
+  "name": "teen-expense-tracker-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Teen Expense Tracker",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --runInBand --forceExit",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": ["**/tests/**/*.test.js"]
+  },
+  "keywords": ["expense-tracker", "teenager", "fintech"],
+  "author": "",
+  "license": "ISC"
+}
