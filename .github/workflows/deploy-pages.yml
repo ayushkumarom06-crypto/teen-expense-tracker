@@ -33,7 +33,7 @@ jobs:
         env:
           GITHUB_PAGES: 'true'
           VITE_ROUTER_BASE: /teen-expense-tracker/
-          VITE_API_URL: https://backend-not-configured.invalid/api
+          VITE_API_URL: ${{ vars.VITE_API_URL || 'https://backend-not-configured.invalid/api' }}
         run: |
           npm ci
           npm run build

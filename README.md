@@ -113,9 +113,10 @@ Transaction query parameters include `search`, `category`, `payment`, `start`, `
 
 ## Deployment
 
-- Deploy the Vite frontend as a static app (Vercel/Netlify); set `VITE_API_URL` to the deployed API's `/api` URL and configure SPA fallback to `index.html`.
-- Deploy the Express backend to a Node host; set the environment variables above, with `FRONTEND_URL` set to the deployed frontend origin.
-- Keep Supabase credentials and `JWT_SECRET` in the backend host's secret manager. Apply schema migrations to the Supabase project before deployment and use HTTPS for both services.
+- The frontend preview deploys from `copilot/full-stack-mvp` to [GitHub Pages](https://ayushkumarom06-crypto.github.io/teen-expense-tracker/). Its API URL is read from the GitHub Actions variable `VITE_API_URL`.
+- The backend has a Render Blueprint at [`render.yaml`](render.yaml). In Render, create a Blueprint from this repository and select branch `copilot/full-stack-mvp`. Set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the Blueprint form; Render generates `JWT_SECRET` and sets the allowed frontend origin.
+- Run [`backend/supabase/schema.sql`](backend/supabase/schema.sql) in the Supabase SQL Editor before testing registration.
+- After Render deploys, set the repository Actions variable `VITE_API_URL` to `https://<render-service>.onrender.com/api`, then rerun the “Deploy frontend preview” workflow. Keep Supabase credentials only in Render's private environment settings.
 
 ## Scope notes
 
