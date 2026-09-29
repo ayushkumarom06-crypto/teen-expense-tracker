@@ -23,5 +23,5 @@ function AppRoutes() {
 
 export default function App() {
   document.documentElement.dataset.theme = localStorage.getItem('pennywise_theme') || 'light';
-  return <BrowserRouter><AuthProvider><ToastProvider><AppRoutes /></ToastProvider></AuthProvider></BrowserRouter>;
+  return <BrowserRouter basename={import.meta.env.VITE_ROUTER_BASE || '/'}><AuthProvider><ToastProvider><AppRoutes /></ToastProvider></AuthProvider></BrowserRouter>;
 }
